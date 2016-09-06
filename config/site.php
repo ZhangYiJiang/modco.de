@@ -10,7 +10,7 @@ return [
 		'routes' => [
 			'module'        => 'Module/Student/Default',
 			'assessment'    => 'Assessment/Student/default',
-			'announcement'  => 'Announcement/default',
+			'announcements' => 'Announcement/default',
 			'files'         => 'File/Student/Default',
 			'forum'         => 'forum/forum',
 			'webcast'       => 'Webcast/Student/multimedia',
@@ -34,9 +34,9 @@ return [
 		'quizzes' => 'assessment',
 		
 		// Announcement
-		'announcement' => 'announcement',
-		'announcements' => 'announcement',
-		'announce' => 'announcement',
+		'announcement' => 'announcements',
+		'announcements' => 'announcements',
+		'announce' => 'announcements',
 		
 		// Files
 		'files' => 'files',
