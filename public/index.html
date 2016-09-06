@@ -48,16 +48,17 @@
       return 'http://modco.de/' + module + '/' + action;
     }
 
-    document.getElementById('url-form').addEventListener('submit', function () {
+    document.getElementById('url-form').addEventListener('submit', function (evt) {
+      evt.preventDefault();
       window.location.href = getUrl();
-    });
+    }, false);
 
-    new Clipboard('#url-data', {
+    new Clipboard('#url-copy', {
       text: function() {
         return getUrl();
       }
     }).on('success', function (e) {
-      e.trigger.textContent('Copied!');
+      e.trigger.textContent = 'Copied!';
     }).on('error', function (e) {
       console.error(e);
     });
