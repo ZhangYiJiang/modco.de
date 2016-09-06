@@ -17,7 +17,7 @@ class CreateVisitsTable extends Migration
 	        
 	        $table->unsignedInteger('module_id');
 	        $table->integer('visits');
-	        $table->date('date')->default('NOW()');
+	        $table->date('date');
 	        
 	        $table->unique(['module_id', 'date']);
         });
