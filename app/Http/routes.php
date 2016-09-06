@@ -25,7 +25,8 @@ function createUrl($courseId, $route) {
 function createRedirection($code, $action) {
 	$module = app('db')->table('modules')
 		->where('code', strtoupper($code))
-		->get();
+		->where('semester', config('site.semester'))
+		->first();
 	
 	if (empty($module)) {
 		abort(404);
