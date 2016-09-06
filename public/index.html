@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ModCo.de - Human readable IVLE URLs</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <main>
+    <h1>
+      ModCo.de
+      <small>NUS IVLE URLs for Human Beings</small>
+    </h1>
+    <p class="subtitle">Because you shouldn't need a degree to get to somewhere on IVLE</p>
+
+    <form id="url-form">
+      <label for="module">Take me to...</label>
+      <div class="url">
+        modco.de/ <input type="text" minlength="4" name="module" id="module" placeholder="CS1010S" autofocus required>
+        /
+        <select name="action" id="action">
+          <option value="">(blank) - module page</option>
+          <option value="assessments">assessments</option>
+          <option value="announcement">announcements</option>
+          <option value="files">files</option>
+          <option value="forum">forum</option>
+          <option value="webcast">webcast</option>
+          <option value="multimedia">multimedia</option>
+          <option value="gradebook">gradebook</option>
+          <option value="consultation">consultation</option>
+        </select>
+      </div>
+      <div class="controls">
+        <button type="button" id="url-copy">Copy</button>
+        <button type="submit">Go!</button>
+      </div>
+    </form>
+
+    <p><a href="https://github.com/ZhangYiJiang/modco.de">Fork me on GitHub</a></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+  <script>
+    function getUrl() {
+      var module = document.getElementById('module').value.toUpperCase();
+      var action = document.getElementById('action').value;
+      return 'http://modco.de/' + module + '/' + action;
+    }
+
+    document.getElementById('url-form').addEventListener('submit', function () {
+      window.location.href = getUrl();
+    });
+
+    new Clipboard('#url-data', {
+      text: function() {
+        return getUrl();
+      }
+    }).on('success', function (e) {
+      e.trigger.textContent('Copied!');
+    }).on('error', function (e) {
+      console.error(e);
+    });
+  </script>
+
+</body>
+</html>
