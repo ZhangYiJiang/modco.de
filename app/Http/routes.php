@@ -12,7 +12,7 @@
 */
 
 function createUrl($courseId, $route) {
-	$ivle = config('ivle');
+	$ivle = config('site.ivle');
 	
 	return implode('', [
 		$ivle['prefix'],
@@ -32,7 +32,7 @@ function createRedirection($code, $action) {
 	}
 	
 	$action = strtolower($action);
-	$routes = config('routes');
+	$routes = config('site.routes');
 	
 	if (!array_key_exists($action, $routes)) {
 		abort(404);
