@@ -16,7 +16,7 @@ function createUrl($courseId, $route) {
 	
 	return implode('', [
 		$ivle['prefix'],
-		$ivle['route'][$route],
+		$ivle['routes'][$route],
 		$ivle['suffix'],
 		$courseId
 	]);
@@ -40,7 +40,7 @@ function createRedirection($code, $action) {
 	}
 	
 	$route = $routes[$action];
-	$url = createUrl($module['course_id'], $route);
+	$url = createUrl($module->course_id, $route);
 	return redirect($url);
 }
 
