@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'semester' => '1617_sem1',
+	'semester' => '1617_sem2',
 	
 	'ivle' => [
 		'prefix' => 'https://ivle.nus.edu.sg/v1/',
